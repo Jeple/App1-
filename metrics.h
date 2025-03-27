@@ -1,3 +1,6 @@
+/*Prototipos Funciones de Calculo (Metricas), header*/
+
+
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 

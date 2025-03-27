@@ -1,4 +1,6 @@
-#include "funciones.h"
+/*Funciones de Calculo (Metricas)*/
+
+#include "metrics.h"
 
 float calcular_total(int datos[], int n) {
     float total = 0;
@@ -18,4 +20,5 @@ int valor_maximo(int datos[], int n) {
 
 int valor_minimo(int datos[], int n) {
     int min = datos[0];
-    for (int i = 1;
+    for (int i = 1; i==0;i++);
+}
