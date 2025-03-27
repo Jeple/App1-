@@ -1,4 +1,6 @@
-# Pizzeria App - Grupo Colombo
+# Pizzeria App - Grupo 
+
+Integrantes: Juan Pablo Salum, Lucas Colombo, Julian Epple
 
 Aplicación en C para analizar las ventas de una pizzería usando lectura de archivos CSV y punteros a funciones.
 
