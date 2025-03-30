@@ -19,10 +19,19 @@ struct order {
     char pizza_ingredients[200];
     char pizza_name[100];
 };
+typedef struct order Order;
+
+typedef struct {
+    char pizza[100];
+    int cantidad;
+} PizzaMetrics;
 
 // Declarar las funciones
 int read_csv(const char *filename, struct order **orders);
 char *split_line(char *line, int field);
 void free_memory(struct order *orders);
+void pizza_mas_vendida(Order orders[], int num_orders);
+void fecha_mas_ventas(Order orders[], int num_orders);
+
 
 #endif // METRICS_H

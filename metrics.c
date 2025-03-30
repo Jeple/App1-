@@ -51,7 +51,7 @@ void fecha_mas_ventas(Order orders[], int num_orders) {
 
     // Contar las ventas por fecha
     for (int i = 0; i < num_orders; i++) {
-        ventas_por_fecha[orders[i].date]++; // Asumimos que la fecha es un valor numérico
+        ventas_por_fecha[atoi(orders[i].order_date)]++; // Convertimos la fecha (string) a entero para usarla como índice
     }
 
     // Encontrar la fecha con más ventas
