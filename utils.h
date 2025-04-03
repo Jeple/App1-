@@ -1,4 +1,6 @@
-/*Prototipos Funciones auxiliares, lectura de CSV*/
+// utils.h
+// Prototipos y estructura para manejar lectura del archivo CSV
+
 #ifndef UTILS_H
 #define UTILS_H
 
@@ -6,22 +8,26 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINE 1024
-#define MAX_FIELDS 5
+// Representa una orden de pizza, tal como viene en el archivo ventas.csv
+typedef struct order {
+    int pizza_id;
+    int order_id;
+    char pizza_name_id[100];
+    int quantity;
+    char order_date[20];
+    char order_time[10];
+    float unit_price;
+    float total_price;
+    char pizza_size;
+    char pizza_category[50];
+    char pizza_ingredients[200];
+    char pizza_name[100];
+} Order;
 
-// Estructura para almacenar una venta
-typedef struct {
-    char fecha[20];
-    char nombre_pizza[50];
-    int cantidad;
-    float precio;
-} Venta;
+// Lee el archivo CSV y carga las órdenes en memoria dinámica
+int read_csv(const char *filename, Order **orders);
 
-// Función para contar el número de líneas en el archivo CSV
-int contar_lineas_csv(const char *nombre_archivo);
-
-// Función para leer el archivo CSV y almacenar los datos en un array de estructuras Venta
-Venta *leer_csv(const char *nombre_archivo, int *num_ventas);
+// Libera la memoria del array de órdenes creado con read_csv
+void free_memory(Order *orders);
 
 #endif // UTILS_H
-
