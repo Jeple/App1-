@@ -30,4 +30,6 @@ int read_csv(const char *filename, Order **orders);
 // Libera la memoria del array de órdenes creado con read_csv
 void free_memory(Order *orders);
 
+void trim(char *str);
+char *get_next_field(char **line_ptr);
 #endif // UTILS_H
