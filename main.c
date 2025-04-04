@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "order.h"    // Primero estructuras
-#include "utils.h"    // Luego funciones auxiliares
-#include "metrics.h"  // Finalmente métricas
+#include "utils.h"     // Para leer el CSV y usar la estructura Order
+#include "metrics.h"   // Para usar pizza_mas_vendida y fecha_mas_ventas
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
