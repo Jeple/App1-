@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/juanp/OneDrive/Documentos/UAI/Lenguajes_y_Paradigmas/Jeple_App1/App1-",
-      "program": "c:/Users/juanp/OneDrive/Documentos/UAI/Lenguajes_y_Paradigmas/Jeple_App1/App1-/build/Debug/outDebug",
+      "cwd": "c:/Users/juanp/OneDrive/Documentos/UAI/Lenguajes_y_Paradigmas/Jeple_App1",
+      "program": "c:/Users/juanp/OneDrive/Documentos/UAI/Lenguajes_y_Paradigmas/Jeple_App1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
