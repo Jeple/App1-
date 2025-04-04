@@ -388,3 +388,4 @@ void cantidad_pizzas_por_categoria(Order orders[], int num_orders) {
         printf("Categoría %s: %d pizzas\n", categorias_unicas[i], cantidad_por_categoria[i]);
     }
 }
+//Subir solo esto
