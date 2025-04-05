@@ -1,24 +1,55 @@
-CC = gcc                          # Definimos el compilador a usar (gcc: GNU Compiler Collection)
-CFLAGS = -Wall -g                # Opciones para el compilador:
-                                # -Wall: muestra todos los warnings (buenas prácticas)
-                                # -g: incluye información de depuración para usar con herramientas como gdb
+# Makefile para la aplicación de análisis de ventas de pizzas
 
-OBJ = main.o utils.o metrics.o   # Lista de archivos objeto que se generan al compilar los .c
-EXEC = app                       # Nombre del ejecutable final
+# Compilador y flags
+CC = gcc
+CFLAGS = -Wall -Wextra -g
 
-all: $(EXEC)                    # Regla por defecto: si ejecutas "make" se va a construir el ejecutable
+# Nombre del ejecutable
+TARGET = app1
 
-$(EXEC): $(OBJ)                 # Para construir el ejecutable, necesitamos los archivos objeto primero
-	$(CC) $(CFLAGS) -o $(EXEC) $(OBJ)   # Compila y enlaza todos los .o en un solo ejecutable llamado "app"
+# Archivos fuente
+SOURCES = main.c utils.c metrics.c
+# Objetos no necesarios, compilamos todo en un solo paso
 
-main.o: main.c utils.h metrics.h     # main.o depende de estos archivos
-	$(CC) $(CFLAGS) -c main.c         # Compila main.c en main.o
+# Regla principal
+all: $(TARGET)
 
-utils.o: utils.c utils.h metrics.h   # utils.o depende de utils y metrics
-	$(CC) $(CFLAGS) -c utils.c        # Compila utils.c en utils.o
+# Compilación del ejecutable
+$(TARGET): $(SOURCES)
+	$(CC) $(CFLAGS) -o $@ $^
+	@echo "Compilación completada. Ejecutar con: ./$(TARGET) ventas.csv <métrica1> [<métrica2> ...]"
 
-metrics.o: metrics.c metrics.h       # metrics.o depende de metrics.h
-	$(CC) $(CFLAGS) -c metrics.c      # Compila metrics.c en metrics.o
+# Regla para limpiar archivos generados
+clean:
+	rm -f $(TARGET)
+	@echo "Limpieza completada"
 
-clean:                             # Comando para limpiar la carpeta (borrar archivos intermedios)
-	rm -f $(OBJ) $(EXEC)            # Elimina los .o y el ejecutable "app"
+# Regla para ejecutar la aplicación (ejemplo con algunas métricas)
+run: $(TARGET)
+	./$(TARGET) ventas.csv pms dms apo
+
+# Regla para mostrar ayuda
+help:
+	@echo "Uso del Makefile:"
+	@echo "  make       - Compila la aplicación ($(TARGET))"
+	@echo "  make clean - Elimina los archivos generados"
+	@echo "  make run   - Ejecuta la aplicación con un ejemplo"
+	@echo "  make help  - Muestra esta ayuda"
+	@echo ""
+	@echo "Para ejecutar con métricas específicas:"
+	@echo "  ./$(TARGET) ejemplo.csv <métrica1> [<métrica2> ...]"
+	@echo ""
+	@echo "Métricas disponibles:"
+	@echo "  pms  - Pizza más vendida"
+	@echo "  pls  - Pizza menos vendida"
+	@echo "  dms  - Fecha con más ventas (en dinero)"
+	@echo "  dls  - Fecha con menos ventas (en dinero)"
+	@echo "  dmsp - Fecha con más pizzas vendidas (cantidad)"
+	@echo "  dlsp - Fecha con menos pizzas vendidas (cantidad)"
+	@echo "  apo  - Promedio de pizzas por orden"
+	@echo "  apd  - Promedio de pizzas por día"
+	@echo "  ims  - Ingrediente más vendido"
+	@echo "  hp   - Cantidad de pizzas vendidas por categoría"
+
+# Indica que estos objetivos no son archivos
+.PHONY: all clean run help
