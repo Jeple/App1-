@@ -31,11 +31,11 @@ ims: Ingrediente más vendido.
 hp: Cantidad de pizzas por categoría vendidas.
 
 # Requisitos
-Lenguaje: C (sin frameworks externos no estándar).
+Lenguaje: C .
 
 Compilador: gcc v5.1 o superior.
 
-Sistema operativo: Compatible con sistemas basados en Unix (Linux, macOS) o Windows (si usas Cygwin o WSL).
+Sistema operativo: Comprobado solo con sistemas basados Windows (con WSL).
 
 # Estructura del Proyecto
 El código está dividido en varios archivos para mantener una estructura modular:
@@ -51,6 +51,23 @@ metrics.h: Prototipos de las funciones de métricas.
 utils.h: Prototipos de funciones auxiliares.
 
 Además, el proyecto incluye un Makefile para compilar el proyecto fácilmente.
+
+# Estructura del Archivo CSV
+El archivo CSV debe seguir la siguiente estructura para que la aplicación funcione correctamente:
+Cada línea representa una columna del CSV, en orden:
+
+pizza_id: ID único de la pizza.
+order_id: ID de la orden.
+pizza_name_id: Identificador del nombre de la pizza.
+quantity: Cantidad de pizzas vendidas.
+order_date: Fecha de la venta.
+order_time: Hora de la venta.
+unit_price: Precio unitario de la pizza.
+total_price: Precio total de la venta.
+pizza_size: Tamaño de la pizza (M = Mediana, L = Grande).
+pizza_category: Categoría de la pizza (por ejemplo, Classic, Veggie, etc.).
+pizza_ingredients: Ingredientes de la pizza.
+pizza_name: Nombre de la pizza.
 
 # Uso
 Para ejecutar la aplicación, usa el siguiente comando en el terminal, donde ejemplo.csv es el archivo de ventas y las métricas a calcular son las deseadas:
